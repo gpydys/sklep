@@ -1,0 +1,17 @@
+product:
+    resource: "@ProductBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+root:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /list
+        permanent: true
+
+logout:
+    path: /logout
+
+login_check:
+    path: /login_check

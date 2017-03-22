@@ -1,0 +1,4 @@
+services:
+    common.mailer:
+        class: CommonBundle\Services\Mailer
+        arguments: ['@twig', '@swiftmailer.mailer']

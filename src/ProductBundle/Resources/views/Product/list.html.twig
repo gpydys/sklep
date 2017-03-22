@@ -1,0 +1,30 @@
+{% extends 'CommonBundle:Site:base.html.twig' %}
+
+{% block body %}
+    <div class="col-md-8 col-md-offset-2 align-self-center">
+        <div class="text-center">
+            <h2 class="page-header">Lista produktów</h2>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tr>
+                    <th>Nazwa</th>
+                    <th>Opis</th>
+                    <th>Cena</th>
+                    <th>Data utworzenia</th>
+                </tr>
+                {% for product in pagination %}
+                    <tr class="table-cell">
+                        <td style="word-wrap: break-word;min-width: 100px;max-width: 130px;">{{ product.name }}</td>
+                        <td style="word-wrap: break-word;min-width: 130px;max-width: 190px;">{{ product.description }}</td>
+                        <td style="word-wrap: break-word;min-width: 100px;max-width: 130px;">{{ product.price }} zł</td>
+                        <td>{{ product.createdAt | date('Y-m-d H:i:s') }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+    </div>
+{% endblock %}
