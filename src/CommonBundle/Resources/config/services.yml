@@ -2,3 +2,8 @@ services:
     common.mailer:
         class: CommonBundle\Services\Mailer
         arguments: ['@twig', '@swiftmailer.mailer']
+
+    common.generate.products:
+        class: CommonBundle\Command\GenerateProducts
+        tags:
+            - { name: console.command }
